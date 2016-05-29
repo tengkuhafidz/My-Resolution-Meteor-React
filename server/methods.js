@@ -1,8 +1,6 @@
 Meteor.methods({
 	addResolution(text){
-
-		check(text, string);
-
+		check(text, String)
 		if(!Meteor.userId()){
 			throw new Meteor.Error('not-authorised')
 		}
@@ -15,15 +13,15 @@ Meteor.methods({
 		})
 	},
 	updateResolution(resolution){
-		check(resolution, object);
+		check(resolution, Object)
 		if(Meteor.userId()!= resolution.user){
 			throw new Meteor.Error('not-authorised')
 		}
 		Resolutions.update(resolution._id, {$set: {complete: !resolution.complete}})
 	},
 	deleteResolution(resolution){
-		check(resolution, object);
-		
+		check(resolution, Object)
+
 		if(Meteor.userId()!= resolution.user){
 			throw new Meteor.Error('not-authorised')
 		}
