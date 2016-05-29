@@ -18,7 +18,7 @@ export default class ResolutionSingle extends Component {
 		return(
 			<li className={resolutionClass}>
 				<input type="checkbox"  readOnly={true} checked={res.complete} onClick={this.toggleChecked.bind(this)}/>
-				{res.text} 
+				<a href={`/resolution/${this.props.resolution._id}`}>{res.text} </a>
 				{status}
 				<button className="btn-cancel" onClick={this.deleteResolution.bind(this)}>&times;</button>
 			</li>

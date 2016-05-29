@@ -4,6 +4,8 @@ import {mount} from 'react-mounter';
 import {MainLayout} from './layouts/MainLayout.jsx';
 import ResolutionsWrapper from './resolutions/ResolutionsWrapper.jsx';
 import About from './About.jsx';
+import ResolutionDetails from './resolutions/ResolutionDetails.jsx';
+
 
 
 FlowRouter.route('/', {
@@ -21,3 +23,12 @@ FlowRouter.route('/about', {
 		})
 	}
 });
+
+FlowRouter.route('/resolution/:id', {
+	action(params){
+		mount(MainLayout, {
+			content: (<ResolutionDetails id={params.id}/>)
+		})
+	}
+});
+
